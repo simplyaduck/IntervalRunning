@@ -11,6 +11,9 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+/**
+ * Class to collect run configuration
+ */
 public class RunSettingsActivity extends AppCompatActivity {
 
     SQLiteDatabase runSettings;
