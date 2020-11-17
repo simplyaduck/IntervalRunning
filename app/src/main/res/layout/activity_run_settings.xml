@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RunSettingsActivity">
+
+    <EditText
+        android:id="@+id/runName"
+        android:layout_width="315dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="5dp"
+        android:ems="10"
+        android:hint="Name your run"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/runTypeRadio"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/runTypeRadio"
+        android:layout_width="315dp"
+        android:layout_height="99dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/runLength"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/runName">
+
+        <RadioButton
+            android:id="@+id/timeRunType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Time Based Intervals" />
+
+        <RadioButton
+            android:id="@+id/distanceRunType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Distance Based Intervals" />
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/repititionsNum"
+        android:layout_width="315dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="25dp"
+        android:ems="10"
+        android:hint="Number or Repititions"
+        android:inputType="number"
+        app:layout_constraintBottom_toTopOf="@+id/saveButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/breakLength" />
+
+    <EditText
+        android:id="@+id/runLength"
+        android:layout_width="315dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="5dp"
+        android:ems="10"
+        android:hint="Run Length"
+        android:inputType="numberDecimal"
+        app:layout_constraintBottom_toTopOf="@+id/breakLength"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/runTypeRadio" />
+
+    <EditText
+        android:id="@+id/breakLength"
+        android:layout_width="315dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="5dp"
+        android:ems="10"
+        android:hint="Break Length"
+        android:inputType="numberDecimal"
+        app:layout_constraintBottom_toTopOf="@+id/repititionsNum"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/runLength" />
+
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="275dp"
+        android:layout_marginLeft="275dp"
+        android:layout_marginTop="34dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginRight="48dp"
+        android:layout_marginBottom="260dp"
+        android:onClick="saveRun"
+        android:text="Save"
+        app:backgroundTint="#4CAF50"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/repititionsNum" />
+</androidx.constraintlayout.widget.ConstraintLayout>
