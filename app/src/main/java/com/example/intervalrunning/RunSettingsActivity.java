@@ -27,7 +27,7 @@ public class RunSettingsActivity extends AppCompatActivity {
 
     public void saveRun(View view){
 
-        String sql = "INSERT INTO articles (runName, runType, runLength, breakLength, repititions) VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO run_settings (runName, runType, runLength, breakLength, repititions) VALUES (?, ?, ?, ?, ?)";
 
         TextView runName = findViewById(R.id.runName);
         RadioGroup radioGroup = findViewById(R.id.runTypeRadio);
@@ -40,7 +40,7 @@ public class RunSettingsActivity extends AppCompatActivity {
         // find the radiobutton by returned id
         RadioButton radioButton = (RadioButton) findViewById(checked);
 
-        //do validation
+        //do validation, trim title
 
         SQLiteStatement statement = runSettings.compileStatement(sql);
         statement.bindString(1, runName.getText().toString());
