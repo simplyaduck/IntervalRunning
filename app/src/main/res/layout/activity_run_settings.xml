@@ -9,7 +9,7 @@
     <EditText
         android:id="@+id/runName"
         android:layout_width="315dp"
-        android:layout_height="41dp"
+        android:layout_height="46dp"
         android:layout_marginTop="60dp"
         android:layout_marginBottom="5dp"
         android:ems="10"
@@ -37,24 +37,27 @@
             android:id="@+id/timeRunType"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="onRadioButtonClicked"
             android:text="Time Based Intervals" />
 
         <RadioButton
             android:id="@+id/distanceRunType"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="onRadioButtonClicked"
             android:text="Distance Based Intervals" />
     </RadioGroup>
 
     <EditText
         android:id="@+id/repititionsNum"
         android:layout_width="315dp"
-        android:layout_height="39dp"
+        android:layout_height="46dp"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="25dp"
         android:ems="10"
         android:hint="Number or Repititions"
         android:inputType="number"
+        android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/saveButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -63,31 +66,33 @@
 
     <EditText
         android:id="@+id/runLength"
-        android:layout_width="315dp"
-        android:layout_height="39dp"
+        android:layout_width="190dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginLeft="48dp"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="5dp"
         android:ems="10"
         android:hint="Run Length"
         android:inputType="numberDecimal"
+        android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/breakLength"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/runTypeRadio" />
 
     <EditText
         android:id="@+id/breakLength"
-        android:layout_width="315dp"
-        android:layout_height="42dp"
+        android:layout_width="190dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginLeft="48dp"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="5dp"
         android:ems="10"
         android:hint="Break Length"
         android:inputType="numberDecimal"
+        android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/repititionsNum"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/runLength" />
 
@@ -100,12 +105,46 @@
         android:layout_marginTop="34dp"
         android:layout_marginEnd="48dp"
         android:layout_marginRight="48dp"
-        android:layout_marginBottom="260dp"
+        android:layout_marginBottom="245dp"
         android:onClick="saveRun"
         android:text="Save"
+        android:visibility="invisible"
         app:backgroundTint="#4CAF50"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/repititionsNum" />
+
+    <Spinner
+        android:id="@+id/runLengthSpinner"
+        android:layout_width="103dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginLeft="22dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginRight="48dp"
+        android:layout_marginBottom="17dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/breakLength"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/runLength"
+        app:layout_constraintTop_toBottomOf="@+id/runTypeRadio" />
+
+    <Spinner
+        android:id="@+id/breakLengthSpinner"
+        android:layout_width="103dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginLeft="22dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="47dp"
+        android:layout_marginRight="47dp"
+        android:layout_marginBottom="14dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/repititionsNum"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/breakLength"
+        app:layout_constraintTop_toBottomOf="@+id/runLengthSpinner" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

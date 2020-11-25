@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string-array name="distance_measurements">
+         <item>km</item>
+         <item>m</item>
+    </string-array>
+
+    <string-array name="time_measurements">
+        <item>sec</item>
+        <item>min</item>
+    </string-array>
+</resources>
