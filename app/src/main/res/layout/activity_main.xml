@@ -20,7 +20,7 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="182dp"
+        android:layout_width="wrap_content"
         android:layout_height="38dp"
         android:layout_marginTop="60dp"
         android:text="Interval Runs"

@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
         runSettings = this.openOrCreateDatabase("RunSettings", MODE_PRIVATE, null);
         runSettings.execSQL("CREATE TABLE IF NOT EXISTS run_settings (id integer PRIMARY KEY, " +
-                "runName VARCHAR, runType INTEGER, runLength double, breakLength double, repititions integer)");
+                "runName VARCHAR, runType INTEGER, runLength double,  runUnit VARCHAR, breakLength double, breakUnit VARCHAR, repititions integer)");
 
 
         runList = findViewById(R.id.listview);
@@ -87,11 +87,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 1) {
-            if (resultCode == RESULT_OK) {
+       // if (requestCode == 1) {
+         //   if (resultCode == RESULT_OK) {
                 updateListView();
-            }
-        }
+        //    }
+       // }
     }
 
     public void updateListView(){

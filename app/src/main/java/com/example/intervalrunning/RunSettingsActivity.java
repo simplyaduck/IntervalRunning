@@ -42,6 +42,10 @@ public class RunSettingsActivity extends AppCompatActivity {
         saveBtn = findViewById(R.id.saveButton);
         runLengthSpinner = findViewById(R.id.runLengthSpinner);
         breakLengthSpinner = findViewById(R.id.breakLengthSpinner);
+
+        ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.time_measurements, android.R.layout.simple_spinner_dropdown_item);
+        runLengthSpinner.setAdapter(adapter);
+        breakLengthSpinner.setAdapter(adapter);
     }
 
 
@@ -54,12 +58,6 @@ public class RunSettingsActivity extends AppCompatActivity {
             case R.id.distanceRunType:
                 if (checked) {
                     // populate distance based fields
-                    runLength.setVisibility(View.VISIBLE);
-                    breakLength.setVisibility(View.VISIBLE);
-                    numReps.setVisibility(View.VISIBLE);
-                    saveBtn.setVisibility(View.VISIBLE);
-                    runLengthSpinner.setVisibility(View.VISIBLE);
-                    breakLengthSpinner.setVisibility(View.VISIBLE);
                     ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.distance_measurements, android.R.layout.simple_spinner_dropdown_item);
                     runLengthSpinner.setAdapter(adapter);
                     breakLengthSpinner.setAdapter(adapter);
@@ -68,12 +66,6 @@ public class RunSettingsActivity extends AppCompatActivity {
             case R.id.timeRunType:
                 if (checked) {
                     // populate time based runs
-                    runLength.setVisibility(View.VISIBLE);
-                    breakLength.setVisibility(View.VISIBLE);
-                    numReps.setVisibility(View.VISIBLE);
-                    saveBtn.setVisibility(View.VISIBLE);
-                    runLengthSpinner.setVisibility(View.VISIBLE);
-                    breakLengthSpinner.setVisibility(View.VISIBLE);
                     ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.time_measurements, android.R.layout.simple_spinner_dropdown_item);
                     runLengthSpinner.setAdapter(adapter);
                     breakLengthSpinner.setAdapter(adapter);
@@ -84,13 +76,10 @@ public class RunSettingsActivity extends AppCompatActivity {
 
     public void saveRun(View view){
 
-        String sql = "INSERT INTO run_settings (runName, runType, runLength, breakLength, repititions) VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO run_settings (runName, runType, runLength, runUnit, breakLength, breakUnit, repititions) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
         TextView runName = findViewById(R.id.runName);
         RadioGroup radioGroup = findViewById(R.id.runTypeRadio);
-        EditText runLength = findViewById(R.id.runLength);
-        EditText breakLength = findViewById(R.id.breakLength);
-        EditText repetitions = findViewById(R.id.repititionsNum);
 
         int checked  = radioGroup.getCheckedRadioButtonId();
 
@@ -102,9 +91,11 @@ public class RunSettingsActivity extends AppCompatActivity {
         SQLiteStatement statement = runSettings.compileStatement(sql);
         statement.bindString(1, runName.getText().toString());
         statement.bindString(2, String.valueOf(checked));
-        statement.bindString(3, runLength.toString());
-        statement.bindString(4, breakLength.toString());
-        statement.bindString(5, repetitions.toString());
+        statement.bindString(3, runLength.getText().toString());
+        statement.bindString(4, runLengthSpinner.getSelectedItem().toString());
+        statement.bindString(5, breakLength.getText().toString());
+        statement.bindString(6, breakLengthSpinner.getSelectedItem().toString());
+        statement.bindString(7, numReps.toString());
 
         statement.execute();
 
