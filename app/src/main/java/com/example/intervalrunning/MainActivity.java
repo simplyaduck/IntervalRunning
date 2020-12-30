@@ -45,7 +45,9 @@ public class MainActivity extends AppCompatActivity {
         runList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //launch get ready to run with the settings loaded as labels
+                Intent intent = new Intent(parent.getContext(), StartRun.class);
+                intent.putExtra("runName", runNames.get(position));
+                startActivity(intent);
             }
         });
 
