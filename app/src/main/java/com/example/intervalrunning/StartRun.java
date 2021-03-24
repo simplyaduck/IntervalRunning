@@ -7,6 +7,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteStatement;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 public class StartRun extends AppCompatActivity {
@@ -54,5 +55,10 @@ public class StartRun extends AppCompatActivity {
         }
 
         c.moveToFirst();
+    }
+
+
+    public void startRun(View view){
+
     }
 }
